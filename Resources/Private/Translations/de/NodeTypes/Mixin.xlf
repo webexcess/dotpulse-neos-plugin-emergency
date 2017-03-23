@@ -18,7 +18,7 @@
 				<source>Nur auf der Homepage</source>
 			</trans-unit>
 			<trans-unit id="properties.emergency.selectBoxEditor.values.all" xml:space="preserve">
-				<source>Ganzen Seite abstellen</source>
+				<source>Ganze Seite abstellen</source>
 			</trans-unit>
 			<trans-unit id="properties.emergencyHeadline.aloha.placeholder" xml:space="preserve">
 				<source>Überschrift des Notfalls</source>
