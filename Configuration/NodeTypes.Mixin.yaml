@@ -85,3 +85,16 @@
             button: false
             formatlessPasteOption: true
             strippedElements: ['h1','h2','h3','h4','h5','h6','p','em','small','s','cite','q','dfn','abbr','time','code','var','samp','kbd','i','b','u','mark','ruby','rt','rp','bdi','bdo','ins','del']
+
+'Dotpulse.Emergency:OverallMixin':
+  abstract: true
+  properties:
+    emergencyOverall:
+      type: boolean
+      defaultValue: false
+      ui:
+        label: i18n
+        reloadIfChanged: false
+        inspector:
+          group: emergency
+          position: 200

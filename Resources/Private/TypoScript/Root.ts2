@@ -3,25 +3,53 @@ namespace: E = Dotpulse.Emergency
 
 root {
 	@context {
-		emergency = ${q(site).property('emergency')}
-		emergencyContent = Fusion:Template {
-			templatePath = 'resource://Dotpulse.Emergency/Private/Templates/Emergency.html'
-
-			attributes = Fusion:Attributes {
-				class = 'emergency-container'
+		emergency = Fusion:RawArray {
+			@context {
+				contentNode = ${this.contentNode}
 			}
 
-			emergencyHeadline = ${q(site).property('emergencyHeadline')}
-			emergencyText = ${q(site).property('emergencyText')}
+			overallDimensions = ${Configuration.setting('Dotpulse.Emergency.contextOverall')}
+			contentDimensions = Fusion:RawArray {
+				targetDimensions = Fusion:RawArray {
+					region = 'global'
+					language = ${node.context.targetDimensions.language}
+				}
+				dimensions = Fusion:RawArray {
+					region = ${['global']}
+					language = ${node.context.dimensions.language}
+				}
+			}
+
+			overallNode = ${q(site).context(this.overallDimensions).get(0)}
+			overall = ${q(this.overallNode).property('emergencyOverall')}
+
+			modeNode = ${this.overall ? this.overallNode : site}
+			contentNode = ${this.overall ? q(site).context(this.contentDimensions).get(0) : site}
+
+			mode = ${q(this.modeNode).property('emergency')}
+
+			content = Fusion:Template {
+				templatePath = 'resource://Dotpulse.Emergency/Private/Templates/Emergency.html'
+
+				attributes = Fusion:Attributes {
+					class = 'emergency-container'
+				}
+
+				emergencyHeadline = ${q(contentNode).property('emergencyHeadline')}
+				emergencyText = ${q(contentNode).property('emergencyText')}
+			}
+
 		}
+
 	}
 	emergencyRedirectToHomepagePage {
-		condition = ${emergency == 'all' && node.context.live && documentNode != site}
+		condition = ${emergency.mode == 'all' && node.context.live && documentNode != site}
 		renderer = E:RedirectToHomepage
 		@position = 'start 1'
 	}
 	emergencyHomepagePage {
-		condition = ${documentNode == site && emergency}
+		//condition = true
+		condition = ${documentNode == site && emergency.mode}
 		renderer = E:Homepage
 		@position = 'start 2'
 	}

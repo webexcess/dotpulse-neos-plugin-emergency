@@ -2,7 +2,7 @@
     "name": "dotpulse/emergency",
     "type": "typo3-flow-plugin",
     "description": "Add emergency mode",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "require": {
         "typo3/neos": "2.*"
     },
