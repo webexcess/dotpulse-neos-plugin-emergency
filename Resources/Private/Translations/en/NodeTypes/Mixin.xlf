@@ -9,19 +9,19 @@
 				<source>Emergency</source>
 			</trans-unit>
 			<trans-unit id="properties.emergency" xml:space="preserve">
-				<source>Modus</source>
+				<source>Mode</source>
 			</trans-unit>
 			<trans-unit id="properties.emergency.selectBoxEditor.placeholder" xml:space="preserve">
-				<source>Kein Meldung ausgeben</source>
+				<source>Don't show not message</source>
 			</trans-unit>
 			<trans-unit id="properties.emergency.selectBoxEditor.values.single" xml:space="preserve">
-				<source>Nur auf der Homepage</source>
+				<source>Only on the homepage</source>
 			</trans-unit>
 			<trans-unit id="properties.emergency.selectBoxEditor.values.all" xml:space="preserve">
-				<source>Ganzen Seite abstellen</source>
+				<source>Shut whole site down</source>
 			</trans-unit>
 			<trans-unit id="properties.emergencyHeadline.aloha.placeholder" xml:space="preserve">
-				<source>Überschrift des Notfalls</source>
+				<source>Headline emergency</source>
 			</trans-unit>
 			<trans-unit id="properties.emergencyText.aloha.placeholder" xml:space="preserve">
 				<source>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</source>
