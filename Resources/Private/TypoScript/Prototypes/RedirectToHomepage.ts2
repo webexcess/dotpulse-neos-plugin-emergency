@@ -1,0 +1,8 @@
+prototype(E:RedirectToHomepage) < prototype(Fusion:Http.Message) {
+	httpResponseHead {
+		statusCode = 302
+		headers.Location = NodeUri {
+			node = ${site}
+		}
+	}
+}

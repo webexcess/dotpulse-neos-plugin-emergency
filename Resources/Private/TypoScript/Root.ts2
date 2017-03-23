@@ -1,0 +1,30 @@
+namespace: Fusion = TYPO3.TypoScript
+namespace: E = Dotpulse.Emergency
+
+root {
+	@context {
+		emergency = ${q(site).property('emergency')}
+		emergencyContent = Fusion:Template {
+			templatePath = 'resource://Dotpulse.Emergency/Private/Templates/Emergency.html'
+
+			attributes = Fusion:Attributes {
+				class = 'emergency-container'
+			}
+
+			emergencyHeadline = ${q(site).property('emergencyHeadline')}
+			emergencyText = ${q(site).property('emergencyText')}
+		}
+	}
+	emergencyRedirectToHomepagePage {
+		condition = ${emergency == 'all' && node.context.live && documentNode != site}
+		renderer = E:RedirectToHomepage
+		@position = 'start 1'
+	}
+	emergencyHomepagePage {
+		condition = ${documentNode == site && emergency}
+		renderer = E:Homepage
+		@position = 'start 2'
+	}
+}
+
+include: Prototypes/**/*.ts2

@@ -1,0 +1,9 @@
+TYPO3:
+  Neos:
+    typoScript:
+      autoInclude:
+        'Dotpulse.Emergency': true
+    userInterface:
+      translation:
+        autoInclude:
+          'Dotpulse.Emergency': ['NodeTypes/*']
